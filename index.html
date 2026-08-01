@@ -2,20 +2,88 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>Simon的个人主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon 的主页</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; background-color: #f0f2f5; }
-        .container { background: white; max-width: 600px; margin: 0 auto; padding: 40px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; }
-        p { color: #666; line-height: 1.6; }
+        body {
+            background-color: #0d1117; /* 深色背景 */
+            color: #c9d1d9; /* 浅灰色文字 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: #161b22;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 600px;
+            width: 90%;
+            border: 1px solid #30363d;
+        }
+        h1 { color: #58a6ff; margin-bottom: 10px; }
+        .typing-effect {
+            font-size: 1.2em;
+            color: #8b949e;
+            height: 1.5em;
+            margin-bottom: 20px;
+        }
+        .skills {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .skill-tag {
+            background: #238636;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: transform 0.2s;
+        }
+        .skill-tag:hover { transform: scale(1.1); background: #2ea043; }
+        img { border-radius: 50%; margin-bottom: 20px; }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- 头像区域 -->
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Avatar" style="width: 100px;">
+        
         <h1>👋 Hi, I'm Simon!</h1>
-        <p>欢迎来到我的第一个个人网站。</p>
-        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-        <p>我正在学习 GitHub Pages，这是我的第一次尝试！</p>
+        
+        <!-- 打字机效果区域 -->
+        <div class="typing-effect" id="typing-text"></div>
+        
+        <hr style="border-color: #30363d; margin: 20px 0;">
+        
+        <h3>🛠️ 我的技能栈</h3>
+        <div class="skills">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">摄影</span>
+        </div>
     </div>
+
+    <script>
+        // 简单的打字机效果脚本
+        const text = "一名热爱技术的网络工程学生...";
+        const element = document.getElementById("typing-text");
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        window.onload = typeWriter;
+    </script>
 </body>
 </html>
